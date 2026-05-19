@@ -23,40 +23,28 @@ class LoanModuleShell extends StatefulWidget {
 }
 
 class _LoanModuleShellState extends State<LoanModuleShell> {
-  late final GoRouter _router;
-  String? _lastReportedLocation;
+  late final LoanModuleRouter _router;
 
   @override
   void initState() {
     super.initState();
     _router = LoanModuleRouter(
       initialLocation: widget.location,
-      onRouteChanged: _reportLocation,
-    ).router;
-    _lastReportedLocation = widget.location;
+      onRouteChanged: widget.onLocationChanged,
+    );
   }
 
   @override
   void didUpdateWidget(LoanModuleShell oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.location != widget.location) {
-      _lastReportedLocation = widget.location;
-      final current = _router.routeInformationProvider.value.uri.toString();
-      if (current != widget.location) {
-        _router.go(widget.location);
-      }
+      _router.router.go(widget.location);
     }
-  }
-
-  void _reportLocation(String location) {
-    if (_lastReportedLocation == location) return;
-    _lastReportedLocation = location;
-    widget.onLocationChanged(location);
   }
 
   @override
   void dispose() {
-    _router.dispose();
+    _router.router.dispose();
     super.dispose();
   }
 
@@ -71,8 +59,8 @@ class _LoanModuleShellState extends State<LoanModuleShell> {
       child: Router(
         routerDelegate: _router.routerDelegate,
         routeInformationParser: _router.routeInformationParser,
-        routeInformationProvider: _router.routeInformationProvider,
-        backButtonDispatcher: _router.backButtonDispatcher,
+        routeInformationProvider: _router.router.routeInformationProvider,
+        backButtonDispatcher: _router.router.backButtonDispatcher,
       ),
     );
   }
