@@ -29,10 +29,10 @@ class _LoanModuleShellState extends State<LoanModuleShell> {
   @override
   void initState() {
     super.initState();
-    _router = LoanModule.createRouter(
+    _router = LoanModuleRouter(
       initialLocation: widget.location,
       onRouteChanged: _reportLocation,
-    );
+    ).router;
     _lastReportedLocation = widget.location;
   }
 

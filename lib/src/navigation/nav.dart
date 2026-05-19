@@ -1,4 +1,3 @@
-import 'package:dummy_flutter_module/loan_module_routes.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -6,9 +5,9 @@ import 'browser_back_stub.dart' if (dart.library.html) 'browser_back_web.dart';
 import 'loan_host_bridge.dart';
 
 extension Nav on WidgetRef {
-  void goTo(String location) => GoRouter.of(context).go(location);
-
-  Future<T?> push<T>(String location) => GoRouter.of(context).push<T>(location);
+  // Renamed from `goTo` to `push` for clarity, as it uses GoRouter.push().
+  Future<T?> push<T extends Object?>(String location) => GoRouter.of(context).push<T>(location);
+  // Future<T?> push<T>(String location) => GoRouter.of(context).push<T>(location);
 
   void pop({String fallback = "/loan"}) {
     print("-----> ${GoRouter.of(context).routerDelegate.canPop()}");

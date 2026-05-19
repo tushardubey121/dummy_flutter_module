@@ -20,7 +20,7 @@ class LoanHomeSuccess extends ConsumerWidget {
               const Text('Loan success'),
               const SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () => ref.pop(fallback: LoanModule.parentRoot),
+                onPressed: () => ref.pop(fallback: LoanModuleRouter.parentRoot),
                 child: const Text('Back to Loan'),
               ),
             ],

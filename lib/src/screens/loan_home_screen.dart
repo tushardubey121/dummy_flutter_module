@@ -23,7 +23,7 @@ class LoanHomeScreen extends ConsumerWidget {
               ),
               SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () => ref.goTo(LoanModule.approve),
+                onPressed: () => ref.push(LoanModuleRouter.approve),
                 child: const Text('Loan approve'),
               ),
             ],
