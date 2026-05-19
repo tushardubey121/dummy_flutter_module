@@ -1,6 +1,5 @@
-import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
-void maybeBrowserBackOrGo(BuildContext context, String fallback) {
+void maybeBrowserBackOrGo(GoRouter context, String fallback) {
   context.go(fallback);
 }

@@ -6,19 +6,20 @@ import 'browser_back_stub.dart' if (dart.library.html) 'browser_back_web.dart';
 import 'loan_host_bridge.dart';
 
 extension Nav on WidgetRef {
-  void goTo(String location) => context.go(location);
+  void goTo(String location) => GoRouter.of(context).go(location);
 
-  Future<T?> push<T>(String location) => context.push<T>(location);
+  Future<T?> push<T>(String location) => GoRouter.of(context).push<T>(location);
 
   void pop({String fallback = "/loan"}) {
-    if (context.canPop()) {
-      context.pop();
+    print("-----> ${GoRouter.of(context).routerDelegate.canPop()}");
+    if (GoRouter.of(context).canPop()) {
+      GoRouter.of(context).pop();
       return;
     }
     try {
       read(loanHostBridgeProvider).exitToHost();
     } on Object {
-      maybeBrowserBackOrGo(context, fallback);
+      maybeBrowserBackOrGo(GoRouter.of(context), fallback);
     }
   }
 }

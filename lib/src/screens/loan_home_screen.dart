@@ -12,18 +12,22 @@ class LoanHomeScreen extends ConsumerWidget {
       appBar: AppBar(title: const Text('Loan Module')),
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ElevatedButton(
-              onPressed: () => ref.pop(),
-              child: const Text('Back to Main App'),
-            ),
-            ElevatedButton(
-              onPressed: () => ref.goTo(LoanModule.approve),
-              child: const Text('Loan approve'),
-            ),
-          ],
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ElevatedButton(
+                onPressed: () => ref.pop(),
+                child: const Text('Back to Main App'),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () => ref.goTo(LoanModule.approve),
+                child: const Text('Loan approve'),
+              ),
+            ],
+          ),
         ),
       ),
     );

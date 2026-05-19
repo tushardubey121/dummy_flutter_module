@@ -10,23 +10,26 @@ class LoanHomeApproved extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(title: const Text('Loan Approved')),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text('Loan Approve success'),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () => ref.pop(fallback: LoanModule.parentRoot),
-              child: const Text('Back to Loan'),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () => ref.goTo(LoanModule.success),
-              child: const Text('Go to success'),
-            ),
-          ],
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text('Loan Approve success'),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () => ref.pop(fallback: LoanModule.parentRoot),
+                child: const Text('Back to Loan'),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () => ref.goTo(LoanModule.success),
+                child: const Text('Go to success'),
+              ),
+            ],
+          ),
         ),
       ),
     );
