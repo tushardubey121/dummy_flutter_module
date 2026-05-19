@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Lets module screens pop back to the host Navigator 2.0 stack.
 class LoanHostBridge {
-  const LoanHostBridge({required this.exitToHost});
+  const LoanHostBridge({required this .exitToHost});
 
   final VoidCallback exitToHost;
 }

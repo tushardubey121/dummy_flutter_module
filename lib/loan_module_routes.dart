@@ -1,3 +1,4 @@
+import 'package:dummy_flutter_module/src/screens/home_loan_success.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -6,6 +7,8 @@ import 'src/screens/loan_home_screen.dart';
 
 class LoanModule {
   static const String parentRoot = '/loan';
+  static const String approve = '$parentRoot/approve';
+  static const String success = '$approve/success';
 
   static List<RouteBase> get routes => [
         GoRoute(
@@ -13,8 +16,12 @@ class LoanModule {
           builder: (_, __) => const LoanHomeScreen(),
         ),
         GoRoute(
-          path: '$parentRoot/approve',
+          path: approve,
           builder: (_, __) => const LoanHomeApproved(),
+        ),
+        GoRoute(
+          path: success,
+          builder: (_, __) => const LoanHomeSuccess(),
         ),
       ];
 

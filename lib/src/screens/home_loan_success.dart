@@ -3,25 +3,23 @@ import 'package:dummy_flutter_module/src/navigation/nav.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class LoanHomeScreen extends ConsumerWidget {
-  const LoanHomeScreen({super.key});
+class LoanHomeSuccess extends ConsumerWidget {
+  const LoanHomeSuccess({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Loan Module')),
+      appBar: AppBar(title: const Text('Loan Success')),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const Text('Loan success'),
+            const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () => ref.pop(),
-              child: const Text('Back to Main App'),
-            ),
-            ElevatedButton(
-              onPressed: () => ref.goTo(LoanModule.approve),
-              child: const Text('Loan approve'),
+              onPressed: () => ref.pop(fallback: LoanModule.parentRoot),
+              child: const Text('Back to Loan'),
             ),
           ],
         ),
